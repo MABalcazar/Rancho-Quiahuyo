@@ -1,0 +1,130 @@
+body {
+    margin: 0; /* para eliminar el margen por defecto del body */
+    padding: 0; /* para eliminar el padding por defecto del body */
+}
+* {
+   box-sizing: border-box; /*.branding y border NO rompan los tamaños de los elementos, 
+   el tamaño total del elemento se mantiene igual aunque se agregue padding o border.
+    Esto facilita el diseño y evita que los elementos se desborden o cambien de tamaño inesperadamente. */
+}
+.main {
+    display: flex;
+    flex-direction: row; /* para organizar los elementos en fila */
+   /* justify-content: center;*/
+    height: 100vh; /* para que ocupe toda la altura de la ventana  vp significa viewport height*/
+    width: 100vw; /* para que ocupe toda la anchura de la ventana  vw significa viewport width*/
+    border: 3px solid green;
+
+}
+
+.main .branding {
+    flex: 6; /* para que ocupe el espacio restante */
+    border: 3px solid red;
+}
+.main .login-box {
+    flex: 4; /* para que ocupe el espacio restante */
+    border: 3px solid blue;
+}
+
+.branding {
+    display: flex;
+    flex-direction: column; /* para organizar los elementos en columna solo se usa flex cuando hay mas de un elemento que acomodad
+    en este caso branding es el padre y .logo .tile son los hijos entonces son dos elementos que se alinearan en forma de columna en este
+    caso si es recomendable el flex si solo hay un elemento no  */
+    padding: 20px; /* para agregar un poco de espacio alrededor del contenido */
+}
+
+.logo img{
+    width: 120px;   /* espacio debajo del logo esto empuja el title hacia abajo */
+    height: auto; /* para mantener la proporción del logo */
+}
+.title{
+    text-align: center; /* para centrar el texto del título */
+      
+}.mg-decoration img {
+    width: 50%;
+    height: auto; /* para mantener la proporción de la imagen */
+}
+.img-decoration {
+    display: flex;
+    justify-content: center; /* para centrar la imagen horizontalmente */
+    align-items: center; /* para centrar la imagen verticalmente */
+}
+.login-box {
+    display: flex;
+    flex-direction: column; /* para organizar los elementos en columna */
+    justify-content: center; /* para centrar el contenido verticalmente */
+    gap: 20px; /* para agregar un poco de espacio  */
+    padding: 55px; /* para agregar un poco de espacio alrededor del contenido */
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.login-box input {
+    padding: 15px; /* para agregar un poco de espacio dentro de los campos de entrada */
+    font-size: 16px; /* para aumentar el tamaño del texto en los campos de entrada */
+    width: 100%; /* para que los campos de entrada ocupen todo el ancho disponible */
+    border: 1px solid #ccc; /* para agregar un borde a los campos de entrada */
+    border-radius: 12px; /* para redondear las esquinas de los campos de entrada */
+   
+}
+.login-box button {
+    width: 100%; /* para que el botón ocupe todo el ancho disponible */
+    padding: 12px; /* para agregar un poco de espacio dentro del botón */                   
+    font-size: 14px; /* para aumentar el tamaño del texto en el botón */
+    color: white; /* para cambiar el color del texto del botón */
+    border: none; /* para eliminar el borde del botón */
+    cursor: pointer; /* para cambiar el cursor al pasar sobre el botón */
+    border-radius: 27px; /* para redondear las esquinas del botón de Facebook */
+    background-color: #fff; /* para cambiar el color de fondo del botón de Facebook */
+    color: #000000; /* para cambiar el color del texto del botón de Facebook */ 
+    border: 1px solid #D4CFCF; 
+    margin-top: 5px; /* para agregar un poco de espacio arriba del botón de Facebook */
+    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+.login-box button.btn-facebook {
+    margin-top: 30px; /* para agregar un poco de espacio dentro del botón de Facebook */
+}
+
+button.btn-inicio {
+    background-color: #A6CCF7; /* para cambiar el color de fondo del botón de inicio */
+    color: #ffffff; /* para cambiar el color del texto del botón de inicio */
+    border: 1px solid #D4CFCF; 
+    margin-top: 5px; /* para agregar un poco de espacio arriba del botón de inicio */
+}
+button.btn-inicio:hover {
+    background-color: #0F5BB5; /* para cambiar el color de fondo del botón de inicio al pasar el mouse */
+}
+
+.login-box label.inicio {
+    font-size: 17px; /* para aumentar el tamaño del texto en las etiquetas */
+    color: #000000; /* para cambiar el color del texto en las etiquetas */
+    margin-top: -100px; /* para agregar un poco de espacio arriba de las etiquetas */
+}
+
+.login-box label[for="remember"] {
+    font-size: 17px; /* para aumentar el tamaño del texto en las etiquetas */
+    color: #000000; /* para cambiar el color del texto en las etiquetas */
+    margin-top: -10px; /* para agregar un poco de espacio arriba de las etiquetas */
+    text-align: center; /* para centrar el texto de la etiqueta */
+}
+
+@media (max-width: 1024px) {
+
+    .branding {
+        display: none;
+      
+    }
+    .login-box {
+       width: 100%;
+       max-width: 650px;
+  
+    }
+    .main {
+        justify-content: center; /* para centrar los elementos verticalmente */
+    }
+ }
