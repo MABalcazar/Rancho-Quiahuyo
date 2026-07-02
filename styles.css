@@ -41,7 +41,7 @@ body {
 .title{
     text-align: center; /* para centrar el texto del título */
       
-}.mg-decoration img {
+}.img-decoration img {
     width: 50%;
     height: auto; /* para mantener la proporción de la imagen */
 }
@@ -54,64 +54,113 @@ body {
     display: flex;
     flex-direction: column; /* para organizar los elementos en columna */
     justify-content: center; /* para centrar el contenido verticalmente */
-    gap: 20px; /* para agregar un poco de espacio  */
     padding: 55px; /* para agregar un poco de espacio alrededor del contenido */
     background: white;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
     font-weight: bold;
+    gap: 10px; /* para agregar un poco de espacio  */
 }
 
 .login-box input {
-    padding: 15px; /* para agregar un poco de espacio dentro de los campos de entrada */
+    padding:25px 14px 11px 14px;; /* para agregar un poco de espacio dentro de los campos de entrada */
     font-size: 16px; /* para aumentar el tamaño del texto en los campos de entrada */
     width: 100%; /* para que los campos de entrada ocupen todo el ancho disponible */
     border: 1px solid #ccc; /* para agregar un borde a los campos de entrada */
     border-radius: 12px; /* para redondear las esquinas de los campos de entrada */
    
 }
-.login-box button {
-    width: 100%; /* para que el botón ocupe todo el ancho disponible */
-    padding: 12px; /* para agregar un poco de espacio dentro del botón */                   
-    font-size: 14px; /* para aumentar el tamaño del texto en el botón */
-    color: white; /* para cambiar el color del texto del botón */
-    border: none; /* para eliminar el borde del botón */
-    cursor: pointer; /* para cambiar el cursor al pasar sobre el botón */
-    border-radius: 27px; /* para redondear las esquinas del botón de Facebook */
-    background-color: #fff; /* para cambiar el color de fondo del botón de Facebook */
-    color: #000000; /* para cambiar el color del texto del botón de Facebook */ 
-    border: 1px solid #D4CFCF; 
-    margin-top: 5px; /* para agregar un poco de espacio arriba del botón de Facebook */
-    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-}
-.login-box button.btn-facebook {
-    margin-top: 30px; /* para agregar un poco de espacio dentro del botón de Facebook */
-}
-
-button.btn-inicio {
-    background-color: #A6CCF7; /* para cambiar el color de fondo del botón de inicio */
-    color: #ffffff; /* para cambiar el color del texto del botón de inicio */
-    border: 1px solid #D4CFCF; 
-    margin-top: 5px; /* para agregar un poco de espacio arriba del botón de inicio */
-}
-button.btn-inicio:hover {
-    background-color: #0F5BB5; /* para cambiar el color de fondo del botón de inicio al pasar el mouse */
-}
 
 .login-box label.inicio {
     font-size: 17px; /* para aumentar el tamaño del texto en las etiquetas */
     color: #000000; /* para cambiar el color del texto en las etiquetas */
-    margin-top: -100px; /* para agregar un poco de espacio arriba de las etiquetas */
 }
 
 .login-box label[for="remember"] {
     font-size: 17px; /* para aumentar el tamaño del texto en las etiquetas */
     color: #000000; /* para cambiar el color del texto en las etiquetas */
-    margin-top: -10px; /* para agregar un poco de espacio arriba de las etiquetas */
     text-align: center; /* para centrar el texto de la etiqueta */
 }
+.login-box button {
+    width: 100%; /* para que el botón ocupe todo el ancho disponible */
+    padding: 10px; /* para agregar un poco de espacio dentro del botón */                   
+    font-size: 14px; /* para aumentar el tamaño del texto en el botón */
+    border: none; /* para eliminar el borde del botón */
+    cursor: pointer; /* para cambiar el cursor al pasar sobre el botón */
+    border-radius: 27px; /* para redondear las esquinas de todos los botones*/
+    margin-top: 5px; /* para agregar un poco de espacio arriba del botón de Facebook */
+    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16px; /* para aumentar el tamaño del texto en el botón */
+    
+}
+.login-box button.btn-facebook {
+    margin-top: 33px; /* para agregar un poco de espacio dentro del botón de Facebook */
+    background-color: transparent;
+    border: 1px solid #D4CFCF; 
+}
+
+.login-box button.btn-create {
+    background-color: transparent; /* para cambiar el color de fondo del botón de crear cuenta */
+    border: 1px solid #0F5BB5;
+    color: #0F5BB5; /* para cambiar el color del texto del botón de crear cuenta */
+
+}
+
+.input-group {
+    position: relative; 
+}
+.input-group label{
+    position: absolute; /* para posicionar la etiqueta sobre el campo de entrada */
+    top: 14px; /* para mover la etiqueta hacia arriba cuando el campo de entrada está enfocado */
+    left: 12px;/* para mover la etiqueta hacia la izquierda cuando el campo de entrada está enfocado */
+    transition: 0.2s ease; /* para agregar una transición suave al mover la etiqueta */
+    pointer-events: none; /* para evitar que la etiqueta interfiera con el campo de entrada (evita que el label bloquee el clic)*/
+    font-weight: 600;
+    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #767676; /* para cambiar el color del texto de la etiqueta cuando el campo de entrada está enfocado */
+    
+}
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: 1px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn-inicio {
+    background-color: #A6CCF7; /* para cambiar el color de fondo del botón de inicio */
+    color: #ffffff; /* para cambiar el color del texto del botón de inicio */
+    border: 1px solid #D4CFCF; 
+    margin-top: 5px; /* para agregar un poco de espacio arriba del botón de inicio */
+    border: 1px solid #D4CFCF; 
+}
+.btn-remember {
+    background-color: transparent; /* para cambiar el color de fondo del botón de recordar contraseña */
+    border: none; /* para eliminar el borde del botón de recordar contraseña */
+}
+
+.btn-inicio:not(:disabled):hover {/* activa el efecto hover solo cuando el botón no está deshabilitado */
+    background-color: #0F5BB5;
+}
+
+button:not(.btn-inicio):hover {
+    background-color: #f1f0f0;
+}
+
+.btn-inicio:disabled {
+    cursor: not-allowed; /* para cambiar el cursor al pasar sobre el botón de inicio deshabilitado */
+}
+input:hover {
+    border: 1px solid #000000; /* para cambiar el color del borde al pasar sobre el campo de entrada */
+}
+input:focus {
+    outline: none; /* para eliminar el borde azul al enfocar el campo de entrada */
+    border: 1px solid #000000; /* para cambiar el color del borde al enfocar el campo de entrada */
+}
+
+
 
 @media (max-width: 1024px) {
 
