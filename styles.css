@@ -13,17 +13,15 @@ body {
    /* justify-content: center;*/
     height: 100vh; /* para que ocupe toda la altura de la ventana  vp significa viewport height*/
     width: 100vw; /* para que ocupe toda la anchura de la ventana  vw significa viewport width*/
-    border: 3px solid green;
 
 }
 
 .main .branding {
     flex: 6; /* para que ocupe el espacio restante */
-    border: 3px solid red;
 }
 .main .login-box {
     flex: 4; /* para que ocupe el espacio restante */
-    border: 3px solid blue;
+   
 }
 
 .branding {
@@ -50,6 +48,7 @@ body {
     justify-content: center; /* para centrar la imagen horizontalmente */
     align-items: center; /* para centrar la imagen verticalmente */
 }
+
 .login-box {
     display: flex;
     flex-direction: column; /* para organizar los elementos en columna */
@@ -57,10 +56,10 @@ body {
     padding: 55px; /* para agregar un poco de espacio alrededor del contenido */
     background: white;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
     font-weight: bold;
     gap: 10px; /* para agregar un poco de espacio  */
+    
 }
 
 .login-box input {
@@ -72,7 +71,7 @@ body {
    
 }
 
-.login-box label.inicio {
+.login-box h2.inicio {
     font-size: 17px; /* para aumentar el tamaño del texto en las etiquetas */
     color: #000000; /* para cambiar el color del texto en las etiquetas */
 }
@@ -110,7 +109,9 @@ body {
 
 .input-group {
     position: relative; 
+    
 }
+
 .input-group label{
     position: absolute; /* para posicionar la etiqueta sobre el campo de entrada */
     top: 14px; /* para mover la etiqueta hacia arriba cuando el campo de entrada está enfocado */
@@ -122,10 +123,12 @@ body {
     color: #767676; /* para cambiar el color del texto de la etiqueta cuando el campo de entrada está enfocado */
     
 }
-.input-group input:focus + label,
-.input-group input:not(:placeholder-shown) + label {
+.input-group input:focus + label, /* el + significa que el label es el siguiente hermano del input, entonces cuando 
+el input está enfocado se aplica el estilo al label mas proximo */
+.input-group input:not(:placeholder-shown) + label {/*placeholder-shown funciona para
+     detectar si el campo de entrada tiene un valor o no, si tiene un valor se mueve la etiqueta hacia arriba*/
     top: 1px;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
 }
 
@@ -141,10 +144,13 @@ body {
     border: none; /* para eliminar el borde del botón de recordar contraseña */
 }
 
-.btn-inicio:not(:disabled):hover {/* activa el efecto hover solo cuando el botón no está deshabilitado */
+.btn-inicio:not(:disabled){
     background-color: #0F5BB5;
+    cursor: pointer; /* para cambiar el cursor al pasar sobre el botón de inicio habilitado */
 }
-
+.btn-inicio {
+    transition: background-color 0.3s ease;
+}
 button:not(.btn-inicio):hover {
     background-color: #f1f0f0;
 }
@@ -160,10 +166,19 @@ input:focus {
     border: 1px solid #000000; /* para cambiar el color del borde al enfocar el campo de entrada */
 }
 
+.success {
+    color: green; /* para cambiar el color del texto de éxito */
+    font-size: 14px; /* para aumentar el tamaño del texto de éxito */
+    margin-top: 10px; /* para agregar un poco de espacio arriba del mensaje de éxito */
+}
 
+.error {
+    color: red; /* para cambiar el color del texto de error */
+    font-size: 14px; /* para aumentar el tamaño del texto de error */
+    margin-top: 10px; /* para agregar un poco de espacio arriba del mensaje de error */
+}
 
 @media (max-width: 1024px) {
-
     .branding {
         display: none;
       
