@@ -2,6 +2,7 @@
   "dependencies": {
     "@angular/common": "^22.0.8",
     "@angular/core": "^22.0.8",
+    "@angular/forms": "^22.0.8",
     "@angular/platform-browser": "^22.0.8",
     "@angular/router": "^22.0.8",
     "rxjs": "^7.8.2",
@@ -11,4 +12,3 @@
     "@angular/build": "^22.0.9",
     "@angular/cli": "^22.0.9"
   }
-}
