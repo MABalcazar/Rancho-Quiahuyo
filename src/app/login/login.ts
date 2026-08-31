@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 import { ChangeDetectorRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { Auth } from '../auth';
 
 
 // Componente de inicio de sesión
@@ -25,10 +27,10 @@ export class Login {
   // =============================
   //Variables de estado
   // =============================
-  public botonHabilitado: boolean = false;
   public mensaje: string = '';
   public tipoMensaje: string = '';
   public loading: boolean = false;
+
 
   // =============================
   //Datos del sistema
@@ -44,8 +46,20 @@ export class Login {
   }
 ];
 
+@ViewChild('formControl')
+formControl!: NgForm; // el ! significa que esta propiedad todavía no tiene un valor cuando se crea la clase, pero Angular la va a inicializar
 
-constructor(private changeDetectorRef : ChangeDetectorRef ){
+
+
+//el constructor es donde declaramos las dependencias que la clase necesita recibir de Angular.
+constructor
+(
+  private changeDetectorRef : ChangeDetectorRef,
+  private router : Router,
+  private auth: Auth
+
+ ){
+  
 
 }
 
@@ -55,26 +69,27 @@ constructor(private changeDetectorRef : ChangeDetectorRef ){
 // Métodos (funciones) del componente de inicio de sesión
 // =============================
 
-public validarFormulario() {
-    this.botonHabilitado =
-    this.username.trim().length >= 3 &&
-    this.password.trim().length >= 6;
-}
-
 public iniciarSesion() {
+    //Comprueba que el formulario sea válido (filtra) 
+    //antes de continuar con el proceso de inicio de sesión. Si es inválido, return detiene la ejecución del método
+  if (!this.formControl.valid) {
+  return;
+}
   const user = this.username.trim();
   const password = this.password.trim();
-  this.loading = true;
 
+    this.loading = true;
   setTimeout(() => {
  
   
-  const accesoPermitido = this.validarCredenciales(user, password);
+  const accesoPermitido = this.validarCredenciales(user, password);// se pasan los valores que ya procesamor con el trim()
 
   if (accesoPermitido) {
 
     this.mensaje = 'Inicio de sesión exitoso';
     this.tipoMensaje = 'success';
+    this.router.navigate(['/dashboard']);
+    this.auth.isAuthenticated = true;
     
   } else {
     this.mensaje = 'Usuario o contraseña incorrectos';
@@ -85,7 +100,6 @@ public iniciarSesion() {
   this.changeDetectorRef.detectChanges();
 
 }, 2000);
-
 }
 
 private validarCredenciales(user: string, password: string): boolean {//esta funcion siempre va a regresar un booleano,
